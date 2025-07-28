@@ -3,7 +3,6 @@ import sqlite3
 import os
 from typing import List, Dict, Any, Optional
 from fastmcp import FastMCP
-
 # Initialize FastMCP server
 mcp = FastMCP("SQLite Explorer",
     log_level="CRITICAL")

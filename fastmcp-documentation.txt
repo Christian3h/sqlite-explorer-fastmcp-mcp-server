@@ -128,7 +128,6 @@ File: /README.md
 
 from fastmcp import FastMCP
 
-
 mcp = FastMCP("Demo 🚀")
 
 
@@ -211,7 +210,6 @@ Let's create a simple MCP server that exposes a calculator tool and some data:
 
 from fastmcp import FastMCP
 
-
 # Create an MCP server
 mcp = FastMCP("Demo")
 
@@ -262,7 +260,6 @@ The FastMCP server is your core interface to the MCP protocol. It handles connec
 
 ```python
 from fastmcp import FastMCP
-
 # Create a named server
 mcp = FastMCP("My App")
 
@@ -371,7 +368,7 @@ def debug_error(error: str) -> list[Message]:
 FastMCP provides an `Image` class that automatically handles image data in your server:
 
 ```python
-from fastmcp import FastMCP, Image
+from mcp.server.fastmcp import FastMCP, Image
 from PIL import Image as PILImage
 
 @mcp.tool()
@@ -397,7 +394,7 @@ Images can be used as the result of both tools and resources.
 The Context object gives your tools and resources access to MCP capabilities. To use it, add a parameter annotated with `fastmcp.Context`:
 
 ```python
-from fastmcp import FastMCP, Context
+from mcp.server.fastmcp import FastMCP, Context
 
 @mcp.tool()
 async def long_task(files: list[str], ctx: Context) -> str:
@@ -478,7 +475,6 @@ For advanced scenarios like custom deployments or running without Claude, you ca
 
 ```python
 from fastmcp import FastMCP
-
 mcp = FastMCP("My App")
 
 if __name__ == "__main__":
@@ -524,7 +520,6 @@ A simple server demonstrating resources, tools, and prompts:
 
 ```python
 from fastmcp import FastMCP
-
 mcp = FastMCP("Echo")
 
 @mcp.resource("echo://{message}")
@@ -547,8 +542,7 @@ def echo_prompt(message: str) -> str:
 A more complex example showing database integration:
 
 ```python
-from fastmcp import FastMCP
-import sqlite3
+from fastmcp import FastMCPimport sqlite3
 
 mcp = FastMCP("SQLite Explorer")
 
@@ -671,7 +665,6 @@ FastMCP Echo Server
 
 from fastmcp import FastMCP
 
-
 # Create server
 mcp = FastMCP("Echo Server")
 
@@ -712,7 +705,6 @@ from pydantic import BaseModel, Field
 from pydantic_ai import Agent
 
 from fastmcp import FastMCP
-
 MAX_DEPTH = 5
 SIMILARITY_THRESHOLD = 0.7
 DECAY_FACTOR = 0.99
@@ -1038,7 +1030,6 @@ File: /examples/readme-quickstart.py
 ================================================
 from fastmcp import FastMCP
 
-
 # Create an MCP server
 mcp = FastMCP("Demo")
 
@@ -1086,7 +1077,6 @@ from pydantic import BeforeValidator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 from fastmcp import FastMCP
-
 
 class SurgeSettings(BaseSettings):
     model_config: SettingsConfigDict = SettingsConfigDict(
@@ -1143,7 +1133,7 @@ Give Claude a tool to capture and view screenshots.
 """
 
 import io
-from fastmcp import FastMCP, Image
+from mcp.server.fastmcp import FastMCP, Image
 
 
 # Create server
@@ -1174,7 +1164,6 @@ FastMCP Echo Server
 """
 
 from fastmcp import FastMCP
-
 # Create server
 mcp = FastMCP("Echo Server")
 
